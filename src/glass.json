@@ -1,0 +1,21 @@
+{
+    "palette": [
+        {
+            "char": "+",
+            "block": "︙glass_block︙"
+        },
+        {
+            "char": "`",
+            "block": "︙glass_pane︙"
+        }
+    ]
+}
+︙
+this.silence()
+glass_variants.push(`
+    {
+        "factor": ${glass_variant_factor},
+        "palette": "${this.outputFilename.split('/').pop().split('.')[0]}"
+    }
+`)
+︙
