@@ -23,28 +23,7 @@
     "inner": "b"
   },
   "selectors": {
-    "buildings": [
-      {
-        "factor": 0.3,
-        "value": "building1"
-      },
-      {
-        "factor": 0.4,
-        "value": "building2"
-      },
-      {
-        "factor": 0.2,
-        "value": "building3"
-      },
-      {
-        "factor": 0.2,
-        "value": "building4"
-      },
-      {
-        "factor": 0.3,
-        "value": "building5"
-      }
-    ],
+    "buildings": ︙JSON.stringify(buildings, null, 2)︙,
     "multibuildings": [
       {
         "factor": 0.3,

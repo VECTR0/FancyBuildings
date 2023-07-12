@@ -1,16 +1,6 @@
 {
     "palette": [
       {
-        "char": "X",
-        "blocks": ︙JSON.stringify(wall_blocks)︙,
-        "damaged": "minecraft:iron_bars"
-      },
-      {
-        "char": "$",
-        "blocks": ︙JSON.stringify(wall_blocks)︙,
-        "damaged": "minecraft:iron_bars"
-      },
-      {
         "char": "#",
         "blocks": ︙JSON.stringify(wall_blocks)︙,
         "damaged": "minecraft:iron_bars"
@@ -25,6 +15,25 @@
 ︙
 this.silence()
 allVariants['wall'].push(`
+    {
+        "factor": 1,
+        "palette": "${this.outputFilenamePure}"
+    }
+`)
+this.redirect('accent_$')
+︙
+{
+    "palette": [
+      {
+        "char": "$",
+        "blocks": ︙JSON.stringify(wall_blocks)︙,
+        "damaged": "minecraft:iron_bars"
+      }
+    ]
+}
+︙
+this.silence()
+allVariants['wallAccent'].push(`
     {
         "factor": 1,
         "palette": "${this.outputFilenamePure}"
