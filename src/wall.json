@@ -1,0 +1,33 @@
+{
+    "palette": [
+      {
+        "char": "X",
+        "blocks": ︙JSON.stringify(wall_blocks)︙,
+        "damaged": "minecraft:iron_bars"
+      },
+      {
+        "char": "$",
+        "blocks": ︙JSON.stringify(wall_blocks)︙,
+        "damaged": "minecraft:iron_bars"
+      },
+      {
+        "char": "#",
+        "blocks": ︙JSON.stringify(wall_blocks)︙,
+        "damaged": "minecraft:iron_bars"
+      },
+      {
+        "char": "}",
+        "blocks": ︙JSON.stringify(wall_blocks)︙,
+        "damaged": "minecraft:iron_bars"
+      }
+    ]
+}
+︙
+this.silence()
+allVariants['wall'].push(`
+    {
+        "factor": 1,
+        "palette": "${this.outputFilenamePure}"
+    }
+`)
+︙

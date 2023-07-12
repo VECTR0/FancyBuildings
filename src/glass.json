@@ -12,10 +12,10 @@
 }
 ︙
 this.silence()
-glass_variants.push(`
+allVariants['glass'].push(`
     {
         "factor": ${glass_variant_factor},
-        "palette": "${this.outputFilename.split('/').pop().split('.')[0]}"
+        "palette": "${this.outputFilenamePure}"
     }
 `)
 ︙

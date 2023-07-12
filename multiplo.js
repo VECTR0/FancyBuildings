@@ -75,6 +75,7 @@ class MultiploProxy {
     }
 
     get outputFilename() {return this.__worker.outputFilename}
+    get outputFilenamePure() {return this.outputFilename.split('/').pop().split('.')[0]}
     silence() {this.isSilent = true}
     split(paths) {
         let executeSplit = () => {
@@ -92,5 +93,34 @@ class MultiploProxy {
             return returnValue
         }
         throw new InterruptWorker('split', executeSplit)
+    }
+    redirect(path) {
+        let executeRedirect = () => {
+            let alreadyParsed = this.__worker.content.slice(0, this.__cellIndex).join('')
+            let finishedWorker = new MultiploWorker(
+                [alreadyParsed],
+                this.outputFilename,
+                this.__worker.scopeBasedEval,
+                this.__worker.identifier
+            )
+
+            let currentPath = [
+                this.outputFilename.split('/').slice(0, -1).join('/'),
+                this.outputFilename.split('/').pop().split('.').slice(0, -1).join('.'),
+                this.outputFilename.split('/').pop().split('.').slice(-1)
+            ]
+            let newWorker = new MultiploWorker(
+                this.__worker.content.slice(this.__cellIndex+1), 
+                currentPath[0]+'/'+path.replace('$', currentPath[1])+'.'+currentPath[2],
+                this.__worker.scopeBasedEval, 
+                this.__worker.identifier+":"+path
+            )
+
+            return [
+                ...finishedWorker.execute(),
+                ...newWorker.execute()
+            ]
+        }
+        throw new InterruptWorker('split', executeRedirect)
     }
 }
