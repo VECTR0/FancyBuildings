@@ -49,30 +49,60 @@ const allVariants = new Proxy({}, variant_handler);
     }
 })();
 
+const shuffleArray = array => {
+    array = [...array]
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array
+  }
+  
 (function make_wall_variants() {
     let variants = {
         "black": [
-            ['minecraft:deepslate_bricks', 'minecraft:cracked_deepslate_bricks', 'chipped:deepslate_37'],
-            ['minecraft:deepslate_tiles', 'minecraft:cracked_deepslate_tiles'],
-            ['chipped:deepslate_8', 'chipped:deepslate_31', 'chipped:deepslate_33'],
             ['minecraft:polished_blackstone_bricks', 'minecraft:cracked_polished_blackstone_bricks', 'minecraft:blackstone'],
             ['chipped:blackstone_8', 'chipped:blackstone_26', 'chipped:blackstone_34', 'chipped:blackstone_31', 'chipped:blackstone_21'],
             ['blue_skies:lunar_stonebrick', 'blue_skies:cracked_lunar_stonebrick', 'blue_skies:mossy_lunar_stonebrick'],
             ['forbidden_arcanus:polished_darkstone_bricks', 'forbidden_arcanus:cracked_polished_darkstone_bricks'],
             ['create:cut_scorchia_bricks'], 
-            ['ars_nouveau:arcane_bricks'], 
             ['byg:soapstone_bricks'],
             ['blue_skies:smooth_midnight_sandstone'],
-            ['minecraft:cobbled_deepslate'],
             ['botania:dark_quartz'],
             ['minecraft:obsidian']
         ],
-        "green": [
-            ['chipped:dark_prismarine_15', 'chipped:dark_prismarine_33', 'chipped:dark_prismarine_37', 'chipped:dark_prismarine_8'],
+        "purple": [
+            ['ars_nouveau:arcane_bricks'], 
+        ],
+        "light_purple": [
+            ['chipped:purpur_block_15', 'minecraft:purpur_block', 'chipped:purpur_block_33', 'chipped:purpur_block_37'],
+            ['chipped:purpur_block_7']
+        ],
+        "pink": [
+            ['create_confectionery:ruby_chocolate_bricks']
+        ],
+        "blue": [
+            ['supplementaries:lapis_bricks'], 
+            ['byg:blue_nether_bricks']
+        ],
+        "light_blue": [
+            ['chipped:packed_ice_15', 'chipped:ice_37', 'chipped:blue_ice_15']
+        ],
+        "asurine": [
+            ['create:cut_asurine_bricks']
+        ],
+        "light_cyan": [
             ['chipped:prismarine_15', 'chipped:prismarine_33', 'chipped:prismarine_14'],
-            ['chipped:prismarine_8', 'chipped:prismarine_26', 'chipped:prismarine_34', 'chipped:prismarine_31'],
+            ['chipped:prismarine_8', 'chipped:prismarine_26', 'chipped:prismarine_34', 'chipped:prismarine_31']
+        ],
+        "cyan": [
+            ['chipped:dark_prismarine_15', 'chipped:dark_prismarine_33', 'chipped:dark_prismarine_37', 'chipped:dark_prismarine_8'],
             ['create:cut_veridium_bricks'],
-            ['minecraft:moss_block'],
+            ['minecraft:warped_wart_block', 'chipped:warped_wart_block_12', 'chipped:warped_wart_block_11', 'chipped:warped_wart_block_9', 'chipped:warped_wart_block_10']
+        ],
+        "green": [
             ['thermal:bamboo_block'],
             ['bambooeverything:bamboo_bundle'],
             ['domum_ornamentum:green_cactus_extra'],
@@ -84,34 +114,47 @@ const allVariants = new Proxy({}, variant_handler);
             ['chipped:sandstone_41', 'chipped:sandstone_26', 'chipped:sandstone_34', 'chipped:sandstone_31'],
             ['minecraft:end_stone_bricks', 'chipped:end_stone_33', 'chipped:end_stone_37'],
             ['chipped:end_stone_8', 'chipped:end_stone_26', 'chipped:end_stone_34', 'chipped:end_stone_21'],
-            ['chipped:white_terracotta_54', 'chipped:white_terracotta_55', 'chipped:white_terracotta_27'],
-            ['create:cut_ochrum_bricks'], 
             ['domum_ornamentum:cream_stone_bricks'], 
             ['domum_ornamentum:beige_stone_bricks'],
-            ['chipped:granite_7'],
-            ['chipped:dirt_7'],
-            ['chipped:bricks_7'],
+            ['chipped:sandstone_7'],
+            ['domum_ornamentum:cactus_extra']
+        ],
+        "orange": [
             ['bambooeverything:dry_bamboo_bundle'],
-            ['create_confectionery:white_chocolate_bricks'],
-            ['tconstruct:mud_bricks']
+            ['create_confectionery:white_chocolate_bricks']
+        ],
+        "light_red": [
+            ['chipped:magma_block_15', 'chipped:magma_block_37', 'chipped:magma_block_33', 'chipped:magma_block_67']
         ],
         "red": [
-            ['chipped:granite_15', 'chipped:granite_37', 'chipped:granite_33'],
-            ['chipped:granite_8', 'chipped:granite_26', 'chipped:granite_34', 'chipped:granite_31', 'chipped:granite_21'],
-            ['byg:red_rock_bricks', 'byg:cracked_red_rock_bricks', 'byg:mossy_red_rock_bricks'],
             ['minecraft:red_mushroom_block', 'chipped:red_mushroom_block_1', 'chipped:red_mushroom_block_2', 'chipped:red_mushroom_block_3', 'chipped:red_mushroom_block_4', 'chipped:red_mushroom_block_5', 'chipped:red_mushroom_block_11', 'chipped:red_mushroom_block_12', 'chipped:red_mushroom_block_13', 'chipped:red_mushroom_block_14', 'chipped:red_mushroom_block_15'],
             ['minecraft:nether_wart_block', 'chipped:nether_wart_block_6', 'chipped:nether_wart_block_7'],
-            ['chipped:magma_block_15', 'chipped:magma_block_37', 'chipped:magma_block_33', 'chipped:magma_block_67'],
-            ['chipped:nether_bricks_7'], 
             ['chipped:red_nether_bricks_7']
         ],
+        "dark_red": [
+            ['chipped:nether_bricks_7'], 
+        ],
+        "red_brown": [
+            ['byg:red_rock_bricks', 'byg:cracked_red_rock_bricks', 'byg:mossy_red_rock_bricks'],
+            ['create_confectionery:chocolate_bricks'],
+            ['chipped:bricks_7']
+        ],
         "brown": [
-            ['domum_ornamentum:brown_stone_bricks'],
-            ['chipped:brown_terracotta_54', 'chipped:brown_terracotta_55'],
             ['minecraft:brown_mushroom_block', 'chipped:brown_mushroom_block_10', 'chipped:brown_mushroom_block_9', 'chipped:brown_mushroom_block_11', 'chipped:brown_mushroom_block_12'],
             ['minecraft:brown_mushroom_block', 'chipped:brown_mushroom_block_3', 'chipped:brown_mushroom_block_4', 'chipped:brown_mushroom_block_5', 'chipped:brown_mushroom_block_6'],
-            ['create_confectionery:chocolate_bricks'],
-            ['create_confectionery:black_chocolate_bricks']
+            ['chipped:dirt_7'],
+            ['create:cut_ochrum_bricks'],
+            ['chipped:granite_7'],
+            ['tconstruct:mud_bricks'],
+            ['chipped:granite_15', 'chipped:granite_37', 'chipped:granite_33'],
+            ['chipped:granite_8', 'chipped:granite_26', 'chipped:granite_34', 'chipped:granite_31', 'chipped:granite_21']
+        ],
+        "dark_brown": [
+            ['chipped:brown_terracotta_54', 'chipped:brown_terracotta_55'],
+            ['create_confectionery:black_chocolate_bricks'],
+        ],
+        "gray_brown": [
+            ['domum_ornamentum:brown_stone_bricks'],
         ],
         "white": [
             ['botania:livingrock_bricks', 'botania:cracked_livingrock_bricks', 'botania:mossy_livingrock_bricks'],
@@ -120,18 +163,12 @@ const allVariants = new Proxy({}, variant_handler);
             ['chipped:calcite_15', 'chipped:calcite_33', 'chipped:calcite_37'],
             ['chipped:calcite_8', 'chipped:calcite_26', 'chipped:calcite_34', 'chipped:calcite_31', 'chipped:calcite_21'],
             ['create:cut_limestone_bricks'], 
-            ['blue_skies:smooth_crystal_sandstone'],
-            ['botania:sunny_quartz'],
-            ['chipped:sandstone_7'],
-            ['domum_ornamentum:cactus_extra']
+            ['blue_skies:smooth_crystal_sandstone']
         ],
-        "blue": [
-            ['supplementaries:lapis_bricks'], 
-            ['byg:blue_nether_bricks'], 
-            ['create:cut_asurine_bricks'],
-            ['minecraft:warped_wart_block', 'chipped:warped_wart_block_12', 'chipped:warped_wart_block_11', 'chipped:warped_wart_block_9', 'chipped:warped_wart_block_10'],
+        "bright": [
+            ['botania:sunny_quartz'],
             ['botania:mana_quartz'],
-            ['chipped:packed_ice_15', 'chipped:ice_37', 'chipped:blue_ice_15']
+            ['botania:lavender_quartz'],
         ],
         "gray": [
             ['chipped:cobblestone_15', 'chipped:cobblestone_33', 'chipped:cobblestone_37', 'chipped:mossy_cobblestone_15', 'chipped:mossy_cobblestone_33', 'chipped:mossy_cobblestone_37', 'chipped:mossy_cobblestone_21'],
@@ -144,20 +181,18 @@ const allVariants = new Proxy({}, variant_handler);
             ['chipped:stone_7', 'chipped:cobblestone_7', 'chipped:mossy_cobblestone_7', 'chipped:mossy_stone_bricks_7']
         ],
         "dark_gray": [
-            ['compactmachines:wall']
-        ],
-        "pink": [
-            ['chipped:purpur_block_15', 'minecraft:purpur_block', 'chipped:purpur_block_33', 'chipped:purpur_block_37'],
-            ['botania:lavender_quartz'],
-            ['chipped:purpur_block_7'],
-            ['create_confectionery:ruby_chocolate_bricks']
+            ['minecraft:deepslate_bricks', 'minecraft:cracked_deepslate_bricks', 'chipped:deepslate_37'],
+            ['minecraft:deepslate_tiles', 'minecraft:cracked_deepslate_tiles'],
+            ['chipped:deepslate_8', 'chipped:deepslate_31', 'chipped:deepslate_33'],
+            ['minecraft:cobbled_deepslate'],
         ],
         "special": [
-            ['twilightforest:aurora_block']
+            ['twilightforest:aurora_block'],
+            ['compactmachines:wall']
         ]
     }
 
-    for (const [color, types] of Object.entries(variants)) {
+    for (let [color, types] of Object.entries(variants)) {
         for (let variant of types) {
             let filename = (variant[0]).replace(/:/g, '_')
             let damageTypes = {
@@ -184,7 +219,22 @@ const allVariants = new Proxy({}, variant_handler);
                 eval($$.create('src/wall.json', out + '/palettes/wall_' + filename + name + '.json'))
                 if(variant.length == 1) break
             }
+        }
+        if(color == "special") continue
 
+        types = shuffleArray(types)
+        for (let i=0;i<types.length-2;i+=3) {
+            let wall_blocks = [{
+                "random": 43,
+                "block": types[i][0]
+            }, {
+                "random": 43,
+                "block": types[i+1][0]
+            }, {
+                "random": 1000,
+                "block": types[i+2][0]
+            }]
+            eval($$.create('src/wall.json', out + '/palettes/wall_random_' + color + '_' + (i/3) + '.json'))
         }
     }
 })();
