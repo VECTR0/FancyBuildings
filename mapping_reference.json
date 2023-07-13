@@ -1,0 +1,11 @@
+{
+    "#": "Main block",
+    "$": "Accent block",
+    "X": "Either a main block or accent block (consistent within a building)",
+
+    "+": "Full-block glass",
+    "`": "Glass pane",
+    "a": "Either a full-block glass or glass pane (consistent within a building, prefered glass type)",
+
+    ":": "Bars"
+}

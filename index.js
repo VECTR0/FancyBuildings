@@ -3,6 +3,10 @@ out = 'dist/lostcities'
 $$.clear(out)
 $$.clone('src/static', out)
 
+function sanitizeName(name) {
+    return name.replace(/[: _"'{}\][]/g, '_').toLowerCase()
+}
+
 const variant_handler = {
     get(target, prop) {
         if (!target[prop]) target[prop] = []
@@ -41,7 +45,7 @@ const allVariants = new Proxy({}, variant_handler);
             for (let base of colored_variants) variants.push([base[0].replace(/\$/g, color), base[1].replace(/\$/g, color), scheme[1]])
 
     for (let v of variants) {
-        let filename = (v[0]+'_'+v[1]).replace(/:/g, '_')
+        let filename = sanitizeName(v[0]+'_'+v[1])
         let glass_block = v[0]
         let glass_pane = v[1]
         let glass_variant_factor = v[2] || 1
@@ -194,7 +198,7 @@ const shuffleArray = array => {
 
     for (let [color, types] of Object.entries(variants)) {
         for (let variant of types) {
-            let filename = (variant[0]).replace(/:/g, '_')
+            let filename = sanitizeName(variant[0])
             let damageTypes = {
                 "": 0,
                 "_damaged": Math.ceil(12/variant.length),
@@ -219,6 +223,9 @@ const shuffleArray = array => {
                 eval($$.create('src/wall.json', out + '/palettes/wall_' + filename + name + '.json'))
                 if(variant.length == 1) break
             }
+
+            let mainBlock = variant[0]
+            eval($$.create('src/bars.json', out + '/palettes/bars_' + filename + '.json'))
         }
         if(color == "special") continue
 
