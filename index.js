@@ -243,9 +243,10 @@ const shuffleArray = array => {
     }
 })();
 
-(function make_floor_structures() {require('./generate_structures.js')})();
+(function make_floor_structures() {require('./structure_generation/main.js')})();
 
 eval($$.create('src/style.json', out + '/styles/standard.json'))
 
 $$.clear('C:/Users/Aurif/curseforge/minecraft/Instances/All the Mods 7 - ATM7/kubejs/data/lostcities')
 $$.clone(out, 'C:/Users/Aurif/curseforge/minecraft/Instances/All the Mods 7 - ATM7/kubejs/data/lostcities/lostcities')
+console.log('Done!')

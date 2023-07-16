@@ -1,4 +1,4 @@
-{
+[{
     "#": "Main block",
     "$": "Accent block",
     "X": "Either a main block or accent block (consistent within a building)",
@@ -11,4 +11,12 @@
     "_": "Slab bottom half",
     "^": "Slab top half",
     "w": "Wall"
-}
+},
+{
+    " ": "Air",
+    "#": "Wall",
+    ":": "Pane/Bar wall",
+    ".": "Obstacle",
+    "?": "Unset",
+    "*": "Any"
+}]
