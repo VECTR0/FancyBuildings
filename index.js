@@ -223,9 +223,6 @@ const shuffleArray = array => {
                 eval($$.create('src/wall.json', out + '/palettes/wall_' + filename + name + '.json'))
                 if(variant.length == 1) break
             }
-
-            let mainBlock = variant[0]
-            eval($$.create('src/bars.json', out + '/palettes/bars_' + filename + '.json'))
         }
         if(color == "special") continue
 

@@ -9,30 +9,6 @@
         "char": "}",
         "blocks": ︙JSON.stringify(wall_blocks)︙,
         "damaged": "minecraft:iron_bars"
-      },
-      {
-        "char": "_",
-        "block": "framedblocks:framed_slab",
-        "tag": {
-          "camo_state": {"Name": "︙wall_blocks.slice(-1)[0]["block"]︙"},
-          "camo_stack": {"id": "︙wall_blocks.slice(-1)[0]["block"]︙", "Count": 1}
-        }
-      },
-      {
-        "char": "^",
-        "block": "framedblocks:framed_slab[top=true]",
-        "tag": {
-          "camo_state": {"Name": "︙wall_blocks.slice(-1)[0]["block"]︙"},
-          "camo_stack": {"id": "︙wall_blocks.slice(-1)[0]["block"]︙", "Count": 1}
-        }
-      },
-      {
-        "char": "w",
-        "block": "framedblocks:framed_wall",
-        "tag": {
-          "camo_state": {"Name": "︙wall_blocks.slice(-1)[0]["block"]︙"},
-          "camo_stack": {"id": "︙wall_blocks.slice(-1)[0]["block"]︙", "Count": 1}
-        }
       }
     ]
 }

@@ -8,7 +8,7 @@
     "a": "Either a full-block glass or glass pane (consistent within a building, prefered glass type)",
 
     ":": "Bars",
-    "_": "Slab bottom half (main block color)",
-    "^": "Slab top half (main block color)",
-    "w": "Wall (main block color)"
+    "_": "Slab bottom half",
+    "^": "Slab top half",
+    "w": "Wall"
 }
