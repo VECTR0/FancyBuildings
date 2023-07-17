@@ -1,7 +1,7 @@
 var fs = require('fs')
 var transformers = require('./transformers.js')
 var {overlap, replaceAt, calcOffset} = require('./utils.js')
-const floorCount = 100
+const { FLOOR_COUNT, SIDE_EFFECT_REGULARIZATION } = require('./parametrization.js')
 
 
 class Feature {
@@ -54,19 +54,24 @@ class Feature {
     }
 
     matches(projection, x, y) {
-        if(x+this.requirements[0].length > projection[0].length) return false
-        if(y+this.requirements.length > projection.length) return false
-        
+        if(x+this.requirements[0].length > projection[0].length) return {result: false}
+        if(y+this.requirements.length > projection.length) return {result: false}
+        let sideEffects = [0, 0]
+
         for(let i=0;i<this.requirements.length;i++) {
             for(let j=0;j<this.requirements[i].length;j++) {
                 let req = this.requirements[i][j]
                 let state = projection[y+i][x+j]
                 
-                if(req == "*" || state == "?" || req == state) continue
-                return false
+                if(req == "*" || req == state) continue
+                if(state == "?") {
+                    sideEffects[(req==" ")*1]++
+                    continue
+                }
+                return {result: false}
             }
         }
-        return true
+        return {result: true, sideEffects}
     }
 
     make_ref(x, y) {
@@ -85,7 +90,13 @@ class FeatureRef {
     get size() {return this.feature.size}
     get projection() {return this.feature.projection}
     get structure() {return this.feature.structure}
-    matches(projection) {return this.feature.matches(projection, this.x, this.y)}
+    matches(projection) {
+        let result = this.feature.matches(projection, this.x, this.y)
+        if(!result.result) return false
+
+        this.sideEffects = result.sideEffects
+        return true
+    }
 
     overlap(floor) {
         overlap(floor.projection, this.projection, this.x, this.y)
@@ -110,8 +121,9 @@ class WaveWorker {
             for(let x=0;x<this.floor.structure[0][0].length;x++) {
                 let cell = []
                 for(let f=0;f<features.length;f++) {
-                    if(features[f].matches(this.floor.projection, x, y))
-                        cell.push(features[f].make_ref(x, y))
+                    let ref = features[f].make_ref(x, y)
+                    if(ref.matches(this.floor.projection))
+                        cell.push(ref)
                 }
                 row.push(cell)
             }
@@ -134,23 +146,23 @@ class WaveWorker {
     }
 
     pickFeature() {
-        let minPoz = []
+        let minCandidates = []
         let min = Infinity
         for(let y=0;y<this.waveMap.length;y++) {
             for(let x=0;x<this.waveMap[y].length;x++) {
-                if(this.waveMap[y][x].length == 0) continue
-                if(this.waveMap[y][x].length < min) {
-                    min = this.waveMap[y][x].length
-                    minPoz = []
+                let candidates = this.waveMap[y][x].filter(f => Math.random()>SIDE_EFFECT_REGULARIZATION(...f.sideEffects))
+                if(candidates.length == 0) continue
+                if(candidates.length < min) {
+                    min = candidates.length
+                    minCandidates = []
                 }
-                if(this.waveMap[y][x].length == min)
-                    minPoz.push([x, y])
+                if(candidates.length == min)
+                    minCandidates = minCandidates.concat(candidates)
             }
         }
 
-        if (minPoz.length == 0) return null
-        let poz = minPoz[Math.floor(Math.random() * minPoz.length)]
-        let feature = this.waveMap[poz[1]][poz[0]][Math.floor(Math.random() * this.waveMap[poz[1]][poz[0]].length)]
+        if (minCandidates.length == 0) return null
+        let feature = minCandidates[Math.floor(Math.random()*minCandidates.length)]
         return feature
     }
 
@@ -208,7 +220,7 @@ function logNow(arg) {
 
 function generate_floors(building) {
     let generatedFloors = []
-    for(let _=0;_<floorCount;_++) {
+    for(let _=0;_<FLOOR_COUNT;_++) {
         let floor = new WaveWorker(building).generate()
         generatedFloors.push(floor)
     }
