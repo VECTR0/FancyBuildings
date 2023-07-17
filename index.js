@@ -111,7 +111,7 @@ const shuffleArray = array => {
             ['bambooeverything:bamboo_bundle'],
             ['domum_ornamentum:green_cactus_extra'],
             ['chipped:moss_block_2', 'chipped:moss_block_1', 'chipped:moss_block_5', 'chipped:moss_block_11', 'chipped:moss_block_8'],
-            ['minecraft:moss_block', 'minecraft:mossy_stone_bricks', 'minecraft:mossy_cobblestone', 'minecraft:oak_leaves', 'minecraft:spruce_leaves', 'minecraft:jungle_leaves']
+            ['minecraft:moss_block', 'minecraft:mossy_stone_bricks', 'minecraft:mossy_cobblestone', 'minecraft:oak_leaves[persistent=true]', 'minecraft:spruce_leaves[persistent=true]', 'minecraft:jungle_leaves[persistent=true]']
         ],
         "yellow": [
             ['rechiseled:sandstone_bricks', 'chipped:sandstone_33', 'chipped:sandstone_37', 'chipped:sandstone_67'],
@@ -241,6 +241,48 @@ const shuffleArray = array => {
             eval($$.create('src/wall.json', out + '/palettes/wall_random_' + color + '_' + (i/3) + '.json'))
         }
     }
+})();
+
+function single_block_palletes(name, char, pallettes) {
+    for(let p in pallettes) {
+        let palette = pallettes[p]
+        if(typeof palette == 'string') palette = [palette]
+        if(typeof palette[0] == 'string') palette = [1, ...palette]
+
+        let blocks = palette.slice(1).map(block => ({
+            "random": Math.ceil(128/(palette.length-1)),
+            "block": block
+        }))
+        let factor = palette[0]
+        eval($$.create('src/single_block_palette.json', out + '/palettes/' + name + '_' + p + '.json'))
+    }
+};
+
+single_block_palletes('bars', ':', [
+    'minecraft:iron_bars', 
+    'additionalbars:gold_bars', 
+    [0.25, 'additionalbars:waxed_copper_bars'], 
+    [0.25, 'additionalbars:waxed_exposed_copper_bars'], 
+    [0.25, 'additionalbars:waxed_weathered_copper_bars'], 
+    [0.25, 'additionalbars:waxed_oxidized_copper_bars'], 
+    ['additionalbars:copper_bars', 'additionalbars:exposed_copper_bars', 'additionalbars:weathered_copper_bars', 'additionalbars:oxidized_copper_bars'],
+    'additionalbars:crimson_bars', 
+    'additionalbars:warped_bars', 
+    [0.2, 'securitycraft:reinforced_iron_bars']
+]);
+
+(function make_ceiling_decorations() {
+    let palletes = ['minecraft:lantern', 'minecraft:soul_lantern', 'chipped:lantern_4', 'chipped:soul_lantern_3', 'chipped:lantern_1', 'chipped:soul_lantern_1', 'chipped:lantern_2', 'chipped:soul_lantern_2', 'supplementaries:brass_lantern', 'supplementaries:crimson_lantern', 'supplementaries:silver_lantern', 'supplementaries:lead_lantern', 'byg:glowstone_lantern', 'byg:therium_lantern', 'byg:cryptic_lantern']
+    palletes = palletes.map(b => b+'[hanging=true]')
+    palletes = palletes.concat(['torchmaster:dreadlamp', 'minecraft:bell[attachment=ceiling]', 'laserio:laser_connector[facing=up]', 'supplementaries:sack', 'minecraft:chain', 'chimes:amethyst_chimes', 'chimes:bamboo_chimes', 'chimes:carved_bamboo_chimes', 'chimes:iron_chimes', 'chimes:copper_chimes', 'mcwlights:white_ceiling_light', 'mcwlights:light_gray_ceiling_light', 'mcwlights:gray_ceiling_light', 'mcwlights:black_ceiling_light', 'utilitix:experience_crystal[facing=down]', 'simplylight:illuminant_panel[facing=down]', 'forbidden_arcanus:arcane_golden_chain', 'additionallanterns:obsidian_chain'])
+
+    let candles = ['supplementaries:candle_holder', 'supplementaries:candle_holder_yellow', 'supplementaries:candle_holder_orange', 'supplementaries:candle_holder_gray', 'supplementaries:candle_holder_black']
+    for(let candle of candles) {
+        for(let i of [1, 2, 3, 4]) 
+            palletes.push([1/candles.length/2, `${candle}[candles=${i},face=ceiling]`])
+    }
+
+    single_block_palletes('ceiling_decor', '^', palletes)
 })();
 
 (function make_floor_structures() {require('./structure_generation/main.js')})();

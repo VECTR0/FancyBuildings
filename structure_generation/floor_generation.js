@@ -90,6 +90,7 @@ class FeatureRef {
     get size() {return this.feature.size}
     get projection() {return this.feature.projection}
     get structure() {return this.feature.structure}
+    get name() {return this.feature.name}
     matches(projection) {
         let result = this.feature.matches(projection, this.x, this.y)
         if(!result.result) return false

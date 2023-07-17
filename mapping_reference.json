@@ -7,9 +7,11 @@
     "`": "Glass pane",
     "a": "Either a full-block glass or glass pane (consistent within a building, prefered glass type)",
 
+    "^": "Ceiling decoration",
     ":": "Bars",
+    
     "_": "Slab bottom half",
-    "^": "Slab top half",
+    "-": "Slab top half",
     "w": "Wall"
 },
 {

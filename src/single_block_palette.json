@@ -1,0 +1,17 @@
+{
+    "palette": [
+      {
+        "char": "︙char︙",
+        "blocks": ︙JSON.stringify(blocks)︙
+      }
+    ]
+}
+︙
+this.silence()
+allVariants[char].push(`
+    {
+        "factor": ${factor},
+        "palette": "${this.outputFilenamePure}"
+    }
+`)
+︙
