@@ -91,9 +91,28 @@ function load_floor_patterns(buildingBases) {
     return buildings
 }
 
+function load_transportation(buildingBases) {
+    let patterns = {}
+    for (let file of fs.readdirSync('src/structure/transportation'))
+        patterns[file.split('.')[0]] = JSON.parse(fs.readFileSync('src/structure/transportation/' + file))
+    
+    let buildings = []
+    for(let building of buildingBases) {
+        for(let p in patterns) {
+            let newBuilding = building.clone(p)
+            for(let i=0;i<newBuilding.structure.length;i++)
+                overlap(newBuilding.structure[i], patterns[p].slices[patterns[p].order[i]], 0, 0, true)
+            buildings.push(newBuilding)
+        }
+    }
+    
+    return buildings
+}
+
 
 module.exports = function get_building_bases() {
     let buildings = load_walls()
     buildings = load_floor_patterns(buildings)
+    buildings = load_transportation(buildings)
     return buildings
 }

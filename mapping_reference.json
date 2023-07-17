@@ -9,6 +9,7 @@
 
     "^": "Ceiling decoration",
     ":": "Bars",
+    "e": "Elevator",
     
     "_": "Slab bottom half",
     "-": "Slab top half",

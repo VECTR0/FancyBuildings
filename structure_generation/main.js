@@ -16,10 +16,18 @@ function save_building(building, floors) {
     eval($$.create(src+'/building.json', `${out}/buildings/building_${building.buildingId}.json`))
 }
 
+function current_time() {
+    let date = new Date()
+    return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+}
+
 function generate_structures() {
     let buildings = get_building_bases()
-    for(let building of buildings)
+    for(let b in buildings) {
+        let building = buildings[b]
+        console.log(`[${current_time()}] Generating building ${building.buildingId}... (${b*1+1}/${buildings.length})`)
         save_building(building, generate_floors(building))
+    }
 
     buildings = buildings.map(building => ({"factor": 1.0, "value": 'building_'+building.buildingId}))
     eval($$.create(src+'/citystyle.json', `${out}/citystyles/citystyle_common.json`))
