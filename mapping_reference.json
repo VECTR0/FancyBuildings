@@ -10,9 +10,12 @@
     "^": "Ceiling decoration",
     ":": "Bars",
     "e": "Elevator",
+
+    "1": "Spawner",
     
     "_": "Slab bottom half",
     "-": "Slab top half",
+    "=": "Slab double",
     "w": "Wall"
 },
 {

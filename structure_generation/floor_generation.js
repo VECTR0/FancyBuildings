@@ -78,6 +78,13 @@ class Feature {
         return new FeatureRef(this, x, y)
     }
 }
+function postProcess(block) {
+    const blockMapping = {
+        "1": ()=>{return Math.floor(Math.random()*8+1)},
+    }
+    if(!blockMapping[block]) return block
+    return blockMapping[block]()
+}
 class FeatureRef {
     constructor(feature, x, y) {
         this.feature = feature
@@ -103,7 +110,7 @@ class FeatureRef {
         overlap(floor.projection, this.projection, this.x, this.y)
         let offset = calcOffset(this.projection, this.structure[0])
         for(let i of [0, 1, 2]) {
-            overlap(floor.structure[i*1+1], this.structure[i], this.x+offset[0], this.y+offset[1])
+            overlap(floor.structure[i*1+1], this.structure[i], this.x+offset[0], this.y+offset[1], false, postProcess)
         }
     }
 }
