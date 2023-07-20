@@ -32,9 +32,9 @@ class Building {
         if(!this._projection) {
             const blockMap = {
                 0: "?",
-                1: " ",
-                2: "#X$+",
-                3: ":a`",
+                1: " b",
+                2: "#X$+=",
+                3: ":a`-_w",
             }
             const reverseBlockMap = {}
             for(let key in blockMap)
@@ -49,7 +49,8 @@ class Building {
                     for(let k of [1, 2, 3]) {
                         flag = Math.max(flag, reverseBlockMap[this.structure[k][i][j]])
                     }
-                    row += blockMap[flag][0]
+                    try {row += blockMap[flag][0]}
+                    catch {throw `Cannot generate projection for chars ${this.structure[1][i][j]}, ${this.structure[2][i][j]}, ${this.structure[3][i][j]}`}
                 }
                 this._projection.push(row)
             }

@@ -24,48 +24,7 @@
   },
   "selectors": {
     "buildings": ︙JSON.stringify(buildings, null, 2)︙,
-    "multibuildings": [
-      {
-        "factor": 0.3,
-        "value": "multi1"
-      },
-      {
-        "factor": 0.3,
-        "value": "multi2"
-      },
-      {
-        "factor": 0.2,
-        "value": "multi3"
-      },
-      {
-        "factor": 0.2,
-        "value": "multi4"
-      },
-      {
-        "factor": 0.1,
-        "value": "multi5"
-      },
-      {
-        "factor": 0.1,
-        "value": "library"
-      },
-      {
-        "factor": 0.1,
-        "value": "center"
-      },
-      {
-        "factor": 0.08,
-        "value": "townhall"
-      },
-      {
-        "factor": 0.25,
-        "value": "shopping"
-      },
-      {
-        "factor": 0.2,
-        "value": "shopping_open"
-      }
-    ],
+    "multibuildings": [],
     "bridges": [
       {
         "factor": 1.0,
