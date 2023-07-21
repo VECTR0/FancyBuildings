@@ -14,12 +14,20 @@
     ":": "Bars",
     "e": "Elevator",
 
-    "1": "Spawner",
+    "1": "Spawner (randomizes into 1-8)",
     
     "_": "Slab bottom half",
     "-": "Slab top half",
     "=": "Slab double",
-    "w": "Wall"
+    "w": "Wall",
+    "s": "Stairs (down)",
+    "S": "Stairs (up)",
+    "d": "Stairs (left)",
+    "D": "Stairs (right)",
+
+    "r": "Cyan terracota (small road)",
+    "R": "Light gray concrete (road patch)",
+    "T": "Dirt (elevation difference)"
 },
 {
     " ": "Air",

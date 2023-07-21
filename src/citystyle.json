@@ -1,25 +1,25 @@
 {
   "inherit": "citystyle_config",
   "streetblocks": {
-    "border": "y",
-    "wall": "w",
-    "street": "S",
+    "border": "T",
+    "wall": "r",
+    "street": "r",
     "streetbase": "b",
-    "streetvariant": "B"
+    "streetvariant": "R"
   },
   "parkblocks": {
-    "elevation": "x"
+    "elevation": "T"
   },
   "corridorblocks": {
-    "roof": "x",
+    "roof": "#",
     "glass": "+"
   },
   "railblocks": {
-    "railmain": "y"
+    "railmain": "r"
   },
   "sphereblocks": {
-    "glass": "Z",
-    "border": "9",
+    "glass": "+",
+    "border": "#",
     "inner": "b"
   },
   "selectors": {
@@ -84,35 +84,7 @@
     "parks": [
       {
         "factor": 1.0,
-        "value": "park_pool"
-      },
-      {
-        "factor": 1.0,
-        "value": "park_plants"
-      },
-      {
-        "factor": 1.0,
-        "value": "park_trees"
-      },
-      {
-        "factor": 1.0,
-        "value": "park_plants_pillars"
-      },
-      {
-        "factor": 0.8,
-        "value": "park_fountain1"
-      },
-      {
-        "factor": 0.8,
-        "value": "park_fountain2"
-      },
-      {
-        "factor": 0.3,
-        "value": "park_building"
-      },
-      {
-        "factor": 0.3,
-        "value": "park_building2"
+        "value": "park_empty"
       }
     ],
     "raildungeons": [

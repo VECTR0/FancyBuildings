@@ -1,0 +1,45 @@
+{
+    "palette": [
+        {
+            "char": "-",
+            "block": "︙slab︙[type=top]"
+        },
+        {
+            "char": "_",
+            "block": "︙slab︙[type=bottom]"
+        },
+        {
+            "char": "=",
+            "block": "︙slab︙[type=double]"
+        },
+        {
+            "char": "w",
+            "block": "︙wall︙"
+        },
+        {
+            "char": "s",
+            "block": "︙stairs︙[facing=north,half=bottom,shape=straight]"
+        },
+        {
+            "char": "S",
+            "block": "︙stairs︙[facing=south,half=bottom,shape=straight]"
+        },
+        {
+            "char": "d",
+            "block": "︙stairs︙[facing=east,half=bottom,shape=straight]"
+        },
+        {
+            "char": "D",
+            "block": "︙stairs︙[facing=west,half=bottom,shape=straight]"
+        }
+    ]
+}
+︙
+this.silence()
+allVariants['slabs'].push(`
+    {
+        "factor": 1,
+        "palette": "${this.outputFilenamePure}"
+    }
+`)
+︙

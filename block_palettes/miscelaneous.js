@@ -1,4 +1,4 @@
-var { makeSingleBlockPallete, allVariants } = require('./common.js')
+var { makeSingleBlockPallete, allVariants, makePalette } = require('./common.js')
 
 function makeBars() {
     makeSingleBlockPallete('bars', ':', [
@@ -29,8 +29,15 @@ function makeCeilingDecorations() {
     makeSingleBlockPallete('ceiling_decor', '^', palletes)
 }
 
+function makeSlabs() {
+    let blocks = ['create:cut_diorite_wall', 'minecraft:stone_brick_wall', 'minecraft:sandstone_wall', 'create:cut_calcite_wall', 'tombstone:dark_marble_wall', 'create:cut_dripstone_wall', 'byg:windswept_sandstone_wall', 'botania:metamorphic_taiga_stone_wall', 'botania:metamorphic_fungal_stone_wall', 'absentbydesign:wall_end_stone', ['absentbydesign:wall_quartz', 'minecraft:quartz_slab', 'minecraft:quartz_stairs'] , 'absentbydesign:wall_tuff', 'absentbydesign:wall_brown_mushroom', 'blue_skies:crystal_sandstone_wall', 'botania:livingrock_wall', 'absentbydesign:wall_mushroom_polished', 'absentbydesign:wall_brown_mushroom']
+    blocks = blocks.map(b => (Array.isArray(b) ? b : [b, b.replace('wall', 'slab'), b.replace('wall', 'stairs')]))
+    for(let [wall, slab, stairs] of blocks) eval(makePalette('slabs'))
+}
+
 module.exports = function() {
     makeBars()
     makeCeilingDecorations()
     makeSingleBlockPallete('elevator', 'e', ['elevatorid:elevator_white', 'elevatorid:elevator_light_gray', 'elevatorid:elevator_gray', 'elevatorid:elevator_black'].map(f=>f+'[directional=false]'))
+    makeSlabs()
 }

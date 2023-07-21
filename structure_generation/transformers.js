@@ -1,10 +1,27 @@
+let mappingRotate = {
+    "s": "d",
+    "S": "D",
+    "d": "S",
+    "D": "s"
+}
+let mappingFlipX = {
+    "d": "D",
+    "D": "d",
+}
+let mappingFlipY = {
+    "s": "S",
+    "S": "s"
+}
+
+
 var transformers = {
     rotate_90(struct) {
         let newStructure = []
         for(let i=0;i<struct[0].length;i++) {
             let row = ""
             for(let j=struct.length-1;j>=0;j--) {
-                row += struct[j][i]
+
+                row += mappingRotate[struct[j][i]] || struct[j][i]
             }
             newStructure.push(row)
         }
@@ -17,10 +34,10 @@ var transformers = {
         return this.rotate_90(this.rotate_90(this.rotate_90(struct)))
     },
     flip_x(struct) {
-        return struct.map(row => row.split("").reverse().join(""))
+        return struct.map(row => row.split("").reverse().join("").replace(/./g, m => mappingFlipX[m] || m))
     },
     flip_y(struct) {
-        return [...struct].reverse()
+        return [...struct].reverse().map(row => row.replace(/./g, m => mappingFlipY[m] || m))
     },
     rotate_90_flip(struct) {
         return this.flip_y(this.rotate_90(struct))
