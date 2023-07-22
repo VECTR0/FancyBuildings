@@ -27,7 +27,8 @@
 
     "r": "Cyan terracota (small road)",
     "R": "Light gray concrete (road patch)",
-    "T": "Dirt (elevation difference)"
+    "T": "Dirt (elevation difference)",
+    "]": "Clear connecting glass (single type)"
 },
 {
     " ": "Air",

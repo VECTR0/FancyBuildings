@@ -11,15 +11,15 @@
     "elevation": "T"
   },
   "corridorblocks": {
-    "roof": "#",
-    "glass": "+"
+    "roof": "r",
+    "glass": "]"
   },
   "railblocks": {
     "railmain": "r"
   },
   "sphereblocks": {
-    "glass": "+",
-    "border": "#",
+    "glass": "]",
+    "border": "r",
     "inner": "b"
   },
   "selectors": {
