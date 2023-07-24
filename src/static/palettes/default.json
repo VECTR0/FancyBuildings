@@ -21,6 +21,11 @@
 
 
     {
+      "char": "w",
+      "block": "minecraft:polished_blackstone_brick_wall"
+    },
+
+    {
       "char": "R",
       "block": "minecraft:cyan_terracotta",
       "damaged": "minecraft:iron_bars"

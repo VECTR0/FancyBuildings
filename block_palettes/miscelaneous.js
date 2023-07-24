@@ -39,5 +39,4 @@ module.exports = function() {
     makeBars()
     makeCeilingDecorations()
     makeSingleBlockPallete('elevator', 'e', ['elevatorid:elevator_white', 'elevatorid:elevator_light_gray', 'elevatorid:elevator_gray', 'elevatorid:elevator_black'].map(f=>f+'[directional=false]'))
-    makeSlabs()
 }

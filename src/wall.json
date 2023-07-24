@@ -9,6 +9,38 @@
         "char": "}",
         "blocks": ︙JSON.stringify(wall_blocks)︙,
         "damaged": "minecraft:iron_bars"
+      },
+      {
+        "char": "-",
+        ︙JSON.stringify(makeSubBlock(wall_blocks, "slab", "[type=top]"), null, 4).slice(1, -1).trim()︙
+      },
+      {
+          "char": "_",
+          ︙JSON.stringify(makeSubBlock(wall_blocks, "slab", "[type=bottom]"), null, 4).slice(1, -1).trim()︙
+      },
+      {
+          "char": "=",
+          ︙JSON.stringify(makeSubBlock(wall_blocks, "slab", "[type=double]"), null, 4).slice(1, -1).trim()︙
+      },
+      {
+          "char": "w",
+          ︙JSON.stringify(makeSubBlock(wall_blocks, "wall", ""), null, 4).slice(1, -1).trim()︙
+      },
+      {
+          "char": "s",
+          ︙JSON.stringify(makeSubBlock(wall_blocks, "stairs", "[facing=north,half=bottom,shape=straight]"), null, 4).slice(1, -1).trim()︙
+      },
+      {
+          "char": "S",
+          ︙JSON.stringify(makeSubBlock(wall_blocks, "stairs", "[facing=south,half=bottom,shape=straight]"), null, 4).slice(1, -1).trim()︙
+      },
+      {
+          "char": "d",
+          ︙JSON.stringify(makeSubBlock(wall_blocks, "stairs", "[facing=east,half=bottom,shape=straight]"), null, 4).slice(1, -1).trim()︙
+      },
+      {
+          "char": "D",
+          ︙JSON.stringify(makeSubBlock(wall_blocks, "stairs", "[facing=west,half=bottom,shape=straight]"), null, 4).slice(1, -1).trim()︙
       }
     ]
 }

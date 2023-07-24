@@ -1,0 +1,20 @@
+{
+    "palette": [
+      {
+        "char": "#",
+        "block": "domum_ornamentum:vanilla_wall_compat",
+        "tag": {
+          "textureData": {"minecraft:block/oak_planks":"create_confectionery:ruby_chocolate_bricks"}
+        }
+      }
+    ]
+}
+︙
+this.silence()
+allVariants["zzz"].push(`
+    {
+        "factor": 1,
+        "palette": "${this.outputFilenamePure}"
+    }
+`)
+︙
