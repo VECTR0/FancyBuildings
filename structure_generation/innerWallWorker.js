@@ -53,13 +53,26 @@ class InnerWallWorker {
 
         for (let y = 0; y < structure[0].length; y++) {
             for (let x = 0; x < structure[0][y].length; x++) {
+                let pr = this.projection[y][x];
                 let ch0 = structure[0][y][x];
                 let ch1 = structure[1][y][x];
                 let ch2 = structure[2][y][x];
-                if (isEmpty(ch0) || "-_=wsSdD:".includes(ch0)) floor[y][x] = Block.OutOfBounds;
-                else if ("?".includes(ch1) && isEmpty(ch2)) floor[y][x] = Block.Empty;
-                else if (" ".includes(ch1)) floor[y][x] = Block.MustEmpty;
-                else floor[y][x] = Block.MustWall;
+
+                /*if('#:'.includes(pr)) floor[y][x] = Block.MustWall;
+                else if(' '.includes(pr) && !isEmpty(ch0) && !"-_=wsSdD:".includes(ch0)) floor[y][x] = Block.OutOfBounds;
+                else if(' '.includes(pr)) floor[y][x] = Block.MustEmpty;
+                else if('?'.includes(pr)) floor[y][x] = Block.Empty;
+                else throw ["unknown block", pr,ch0,ch1,ch2]*/
+                
+                if('#:'.includes(pr)) floor[y][x] = Block.MustWall;
+                else if('?'.includes(pr)) floor[y][x] = Block.Empty;
+                else if(!"#X$e".includes(ch0)) floor[y][x] = Block.OutOfBounds;
+                else if(' '.includes(pr)) floor[y][x] = Block.MustEmpty;
+
+                // if (isEmpty(ch0) || "-_=wsSdD:".includes(ch0)) floor[y][x] = Block.OutOfBounds;
+                // else if ("?".includes(ch1) && isEmpty(ch2)) floor[y][x] = Block.Empty;
+                // else if (" ".includes(ch1)) floor[y][x] = Block.MustEmpty;
+                // else floor[y][x] = Block.MustWall;
             }
         }
         return floor;
