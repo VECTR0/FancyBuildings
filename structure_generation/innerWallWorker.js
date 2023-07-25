@@ -88,6 +88,7 @@ class InnerWallWorker {
                 if (this.floor[y][x] != this.initalFloor[y][x]) {
                     switch (this.floor[y][x]) {
                         case Block.Wall:
+                        case Block.MustWall:
                             structure3d[1][y][x] = "#"
                             structure3d[2][y][x] = "#"
                             structure3d[3][y][x] = "#"
@@ -396,11 +397,14 @@ class InnerWallWorker {
 
                 let wrong = false;
                 let emptyCount = 0;
+                let wallsToCreate = 0
                 for (let ii = 0; ii < h; ii++) {
                     for (let jj = 0; jj < w; jj++) {
                         if (ii == 0 || ii == h - 1 || jj == 0 || jj == w - 1) {
                             if (m[i + ii][j + jj] == Block.MustEmpty || m[i + ii][j + jj] == Block.OutOfBounds) {
                                 wrong = true;
+                            }else if(m[i + ii][j + jj] == Block.Empty){
+                                wallsToCreate++;
                             }
                         } else {
                             if (m[i + ii][j + jj] == Block.Wall || m[i + ii][j + jj] == Block.MustWall || m[i + ii][j + jj] == Block.OutOfBounds) {
@@ -414,8 +418,8 @@ class InnerWallWorker {
                     }
                 }
 
-                if (!wrong && emptyCount > 0) {
-                    placements.push([j, i, w, h])
+                if (!wrong && wallsToCreate+emptyCount > 0) {
+                    placements.push([j, i, w, h, wallsToCreate])
                 }
             }
         }
@@ -428,11 +432,14 @@ class InnerWallWorker {
 
                     let wrong = false;
                     let emptyCount = 0;
+                    let wallsToCreate = 0
                     for (let ii = 0; ii < h; ii++) {
                         for (let jj = 0; jj < w; jj++) {
                             if (ii == 0 || ii == h - 1 || jj == 0 || jj == w - 1) {
                                 if (m[i + ii][j + jj] == Block.MustEmpty || m[i + ii][j + jj] == Block.OutOfBounds) {
                                     wrong = true;
+                                } else if(m[i + ii][j + jj] == Block.Empty){
+                                    wallsToCreate++;
                                 }
                             } else {
                                 if (m[i + ii][j + jj] == Block.Wall || m[i + ii][j + jj] == Block.MustWall || m[i + ii][j + jj] == Block.OutOfBounds) {
@@ -446,8 +453,8 @@ class InnerWallWorker {
                         }
                     }
 
-                    if (!wrong && emptyCount > 0) {
-                        placements.push([j, i, w, h])
+                    if (!wrong && wallsToCreate+emptyCount > 0) {
+                        placements.push([j, i, w, h, wallsToCreate])
                     }
                 }
             }
@@ -484,6 +491,12 @@ class InnerWallWorker {
     _tryPlaceRoom(w, h, m, rs) {
         let placements = this._getRoomPlacements(w, h, m)
         if (placements.length > 0) {
+
+            if (placements.length > 1) {
+                placements.sort((a, b) => -(a[4] - b[4]))
+                placements.length = Math.floor(placements.length * .8)
+            }
+            
             let startCorridorCount = this._corridorTest(m)
             let sav = this._get(m)
 
