@@ -38,15 +38,7 @@
     "fronts": [
       {
         "factor": 1.0,
-        "value": "building_front1"
-      },
-      {
-        "factor": 1.0,
-        "value": "building_front2"
-      },
-      {
-        "factor": 1.0,
-        "value": "building_front3"
+        "value": "building_front"
       }
     ],
     "stairs": [
