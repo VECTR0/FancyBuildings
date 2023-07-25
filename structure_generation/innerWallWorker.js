@@ -386,6 +386,9 @@ class InnerWallWorker {
                 if (floor[y][x] == Block.MustEmpty && initialFloor[y][x] == Block.Empty) {
                     floor[y][x] = Block.Empty
                 }
+                else if (floor[y][x] == Block.MustWall && initialFloor[y][x] == Block.Empty) {
+                    floor[y][x] = Block.Wall
+                }
             }
         }
     }
