@@ -5,7 +5,7 @@
     "wall": "r",
     "street": "r",
     "streetbase": "b",
-    "streetvariant": "R"
+    "streetvariant": "r"
   },
   "parkblocks": {
     "elevation": "T"

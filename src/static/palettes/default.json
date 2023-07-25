@@ -105,6 +105,27 @@
     {
       "char": "/",
       "block": "minecraft:stone_stairs[facing=west,half=bottom,shape=straight]"
+    },
+
+    {
+      "char": "u",
+      "block": "minecraft:white_concrete"
+    },
+    {
+      "char": "R",
+      "block": "pneumaticcraft:smooth_plastic_brick_black"
+    },
+    {
+      "char": "v",
+      "block": "minecraft:black_concrete"
+    },
+    {
+      "char": "U",
+      "block": "absentbydesign:wall_obsidian"
+    },
+    {
+      "char": "V",
+      "block": "minecraft:obsidian"
     }
   ]
 }

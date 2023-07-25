@@ -26,9 +26,13 @@
     "D": "Stairs (right)",
 
     "r": "Cyan terracota (small road)",
-    "R": "Light gray concrete (road patch)",
     "T": "Dirt (elevation difference)",
-    "]": "Clear connecting glass (single type)"
+    "]": "Clear connecting glass (single type)",
+    "R": "Black plastic (road main block)",
+    "u": "White concrete (road strip)",
+    "v": "Black concrete (road border)",
+    "U": "Obsidian wall (road barrier)",
+    "V": "Obsidian (road support)"
 },
 {
     " ": "Air",
