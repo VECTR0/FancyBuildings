@@ -311,7 +311,7 @@ class InnerWallWorker {
                 for (let x = 1; x < floor[y].length - 1; x++) {
                     let ra = rooms.areasMap;
                     let fl = floor;
-                    if(fl[y][x] !== Block.wall)continue;
+                    if(fl[y][x] !== Block.Wall)continue;
                     if (ra[y + 1][x] != ra[y - 1][x] && ra[y + 1][x] != -1 && ra[y - 1][x] != -1
                         && (fl[y][x + 1] == Block.Wall || fl[y][x + 1] == Block.MustWall) && (fl[y][x - 1] == Block.Wall || fl[y][x - 1] == Block.MustWall)) {
                         doorPlacements.push([x, y, 0, null, 1])
