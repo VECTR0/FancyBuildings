@@ -2,7 +2,7 @@ var fs = require('fs')
 var transformers = require('./transformers.js')
 var {overlap, replaceAt, calcOffset} = require('./utils.js')
 const { FLOOR_COUNT, SIDE_EFFECT_REGULARIZATION } = require('./parametrization.js')
-
+const InnerWallWorker = require('./innerWallWorker.js')
 
 class Feature {
     constructor(structure, requirements, projection, name) {
@@ -209,6 +209,8 @@ class WaveWorker {
     }
 
     generate() {
+        let worker = new InnerWallWorker(this.floor.structure, this.floor.projection)
+        worker.apply()
         this.prepareWaveMap()
         let feature
         while((feature = this.pickFeature()) != null) {
