@@ -31,6 +31,9 @@ class InnerWallWorker {
         this._removeTwoTwoWalls(this.floor)
         // let mergeTime = Date.now();
         this._cleanUp(this.floor, this.initalFloor)
+
+        this._checkMap(this.floor);
+
         this._placeDoors(this.floor)
         // let placeTime = Date.now();
         this._updateStructure(this.structure, this.projection)
@@ -118,6 +121,7 @@ class InnerWallWorker {
     _generateRooms(m) {
         let quicksaveMap = this._get(m)
         let rooms = [];
+        let best = [null, 0];
         for (let tries = 0; tries < 10; tries++) {
             rooms.length = 0;
             for (let times = 0; times < 10; times++) {
@@ -131,8 +135,14 @@ class InnerWallWorker {
                 this._tryPlaceRoom(4, 4, m, rooms)
             }
             if (rooms.length > 3) break;
-            else this._set(quicksaveMap, m);
+            else {
+                if(rooms.length > best[1]){
+                    best = [this._get(m), rooms.length]
+                }
+                this._set(quicksaveMap, m);
+            }
         }
+        if(rooms.length <= 3) this._set(best[0], m);
     }
 
     _removeTwoTwoWalls(floor) {
@@ -311,6 +321,13 @@ class InnerWallWorker {
                 }
             }
         }
+    }
+
+    _checkMap(floor){
+        let rooms = this._getAreas(floor, function (x, y, floor) {
+            return floor[y][x] == Block.Empty || floor[y][x] == Block.MustEmpty
+        })
+        if (rooms.areaSizes.length == 1) this.fail = true;
     }
 
     _placeDoors(floor) {
