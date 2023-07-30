@@ -1,0 +1,160 @@
+{
+  "palette": [
+    {
+      "char": "k",
+      "block": "moreminecarts:lightspeed_rail[shape=north_south]"
+    },
+    {
+      "char": "e",
+      "block": "moreminecarts:lightspeed_rail[shape=east_west]"
+    },
+    {
+      "char": "j",
+      "block": "moreminecarts:maglev_rail[shape=ascending_east]"
+    },
+    {
+      "char": "q",
+      "block": "minecraft:rail[shape=south_east]"
+    },
+    {
+      "char": "s",
+      "block": "minecraft:rail[shape=south_west]"
+    },
+    {
+      "char": "r",
+      "block": "minecraft:rail[shape=north_west]"
+    },
+    {
+      "char": "n",
+      "block": "minecraft:rail[shape=north_east]"
+    },
+    {
+      "char": "m",
+      "block": "moreminecarts:lightspeed_powered_rail[powered=true,shape=north_south]"
+    },
+    {
+      "char": "E",
+      "block": "moreminecarts:maglev_powered_rail[powered=true,shape=ascending_south]"
+    },
+    {
+      "char": "H",
+      "block": "moreminecarts:maglev_powered_rail[powered=true,shape=ascending_north]"
+    },
+    {
+      "char": "f",
+      "block": "moreminecarts:lightspeed_powered_rail[powered=true,shape=east_west]"
+    },
+    {
+      "char": "i",
+      "block": "moreminecarts:maglev_powered_rail[powered=true,shape=ascending_east]"
+    },
+    {
+      "char": "y",
+      "block": "minecraft:deepslate_tiles"
+    },
+    {
+      "char": "T",
+      "block": "minecraft:wall_torch[facing=north]",
+      "torch": true
+    },
+    {
+      "char": "F",
+      "blocks": [
+        {
+          "random": 25,
+          "block": "minecraft:furnace[facing=north]"
+        },
+        {
+          "random": 20,
+          "block": "minecraft:crafting_table"
+        },
+        {
+          "random": 7,
+          "block": "minecraft:brewing_stand"
+        },
+        {
+          "random": 6,
+          "block": "minecraft:anvil[facing=north]"
+        },
+        {
+          "random": 5,
+          "block": "minecraft:cauldron"
+        },
+        {
+          "random": 2,
+          "block": "minecraft:enchanting_table"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:cobweb"
+        }
+      ]
+    },
+    {
+      "char": "!",
+      "blocks": [
+        {
+          "random": 15,
+          "block": "minecraft:diamond_block"
+        },
+        {
+          "random": 20,
+          "block": "minecraft:gold_block"
+        },
+        {
+          "random": 15,
+          "block": "minecraft:emerald_block"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:iron_block"
+        }
+      ]
+    },
+    {
+      "char": "C",
+      "block": "minecraft:chest[facing=north]",
+      "loot": "chestloot"
+    },
+    {
+      "char": "h",
+      "block": "byg:glowstone_lamp"
+    },
+    {
+      "char": "g",
+      "block": "minecraft:redstone_torch[lit=true]"
+    },
+    {
+      "char": "_",
+      "block": "minecraft:deepslate_tile_slab[type=bottom]"
+    },
+    {
+      "char": ":",
+      "block": "minecraft:iron_bars"
+    },
+    {
+      "char": "+",
+      "block": "connectedglass:clear_glass_gray"
+    },
+    {
+      "char": "(",
+      "block": "minecraft:deepslate_tile_stairs[facing=north,half=bottom,shape=straight]"
+    },
+    {
+      "char": ")",
+      "block": "minecraft:deepslate_tile_stairs[facing=south,half=bottom,shape=straight]"
+    },
+    {
+      "char": "Q",
+      "block": "create:cut_tuff"
+    },
+    {
+      "char": "E",
+      "block": "elevatorid:elevator_gray"
+    },
+    {
+      "char": "=",
+      "block": "minecraft:deepslate_tile_stairs[facing=east,half=bottom,shape=straight]"
+    }
+  ]
+}
