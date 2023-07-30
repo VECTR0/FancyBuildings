@@ -10,7 +10,7 @@
     },
     {
       "char": "j",
-      "block": "moreminecarts:maglev_rail[shape=ascending_east]"
+      "block": "minecraft:rail[shape=ascending_east]"
     },
     {
       "char": "q",

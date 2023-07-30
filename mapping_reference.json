@@ -32,7 +32,22 @@
     "u": "White concrete (road strip)",
     "v": "Black concrete (road border)",
     "U": "Obsidian wall (road barrier)",
-    "V": "Obsidian (road support)"
+    "V": "Obsidian (road support)",
+
+
+
+
+    "⬛": "Decorative bookshelf",
+    "⬚": "Enchanting table",
+    "⬜": "Enchanting bookshelf/mana pylon",
+
+    "f": "Flower (won't generate properly)",
+    "F": "Leaves",
+    "⬝": "Wooden wall",
+    "⬞": "Planter",
+
+    "↡↠↟↞": "Utility block (crafting table etc.)",
+    "↥↤↧↦": "Mob head (hanging on wall)"
 },
 {
     " ": "Air",
