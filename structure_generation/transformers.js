@@ -1,18 +1,4 @@
-let mappingRotate = {
-    "s": "d",
-    "S": "D",
-    "d": "S",
-    "D": "s"
-}
-let mappingFlipX = {
-    "d": "D",
-    "D": "d",
-}
-let mappingFlipY = {
-    "s": "S",
-    "S": "s"
-}
-
+let {mappingRotate, mappingFlipX, mappingFlipY} = require('./transformers_mapping.js')
 
 var transformers = {
     rotate_90(struct) {
