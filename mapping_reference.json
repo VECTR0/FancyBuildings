@@ -26,9 +26,36 @@
     "D": "Stairs (right)",
 
     "r": "Cyan terracota (small road)",
-    "R": "Light gray concrete (road patch)",
     "T": "Dirt (elevation difference)",
-    "]": "Clear connecting glass (single type)"
+    "]": "Clear connecting glass (single type)",
+    "R": "Black plastic (road main block)",
+    "u": "White concrete (road strip)",
+    "v": "Black concrete (road border)",
+    "U": "Obsidian wall (road barrier)",
+    "V": "Obsidian (road support)",
+
+
+
+
+    "⬛": "Decorative bookshelf",
+    "⬚": "Enchanting table",
+    "⬜": "Enchanting bookshelf/mana pylon",
+
+    "f": "Flower (won't generate properly)",
+    "F": "Leaves",
+    "⬝": "Wooden wall",
+    "⬞": "Planter",
+
+    "↡↠↟↞": "Utility block (crafting table etc.)",
+    "↥↤↧↦": "Mob head (hanging on wall)",
+    "ߠ": "Table",
+    "ߑ": "Cake",
+    "ߊ": "Chain",
+    "⇈⇊⇇⇉": "Chest with loot",
+    "ߍ": "Campfire",
+    "ߛ": "Composter",
+    "⇣⇢⇡⇠": "Desk decor (66% chance for air)",
+    "⥐⥏⥎⥑": "Trapdoor (upper, closed)"
 },
 {
     " ": "Air",

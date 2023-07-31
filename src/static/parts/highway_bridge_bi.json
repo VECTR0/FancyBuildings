@@ -1,0 +1,30 @@
+{
+  "meta": [
+    {
+      "key": "support",
+      "char": "V"
+    }
+  ],
+  "xsize": 16,
+  "zsize": 16,
+  "slices": [
+    [
+      "vRRRRRRuuRRRRRRv",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "uuuuuuuuuuuuuuuu",
+      "uuuuuuuuuuuuuuuu",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "vRRRRRRuuRRRRRRv"
+    ]
+  ]
+}

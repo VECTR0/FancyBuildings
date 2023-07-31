@@ -49,10 +49,11 @@ function sanitizeName(name) {
 })();
 
 generatePalettes();
+eval($$.create('src/style.json', out + '/styles/standard.json'));
+
 (function make_floor_structures() {require('./structure_generation/main.js')})();
 
-eval($$.create('src/style.json', out + '/styles/standard.json'))
 
-$$.clear('C:/Users/Aurif/curseforge/minecraft/Instances/All the Mods 7 - ATM7/kubejs/data/lostcities')
-$$.clone(out, 'C:/Users/Aurif/curseforge/minecraft/Instances/All the Mods 7 - ATM7/kubejs/data/lostcities/lostcities')
+$$.clear('D:/Games/curseforge/minecraft/Instances/All the Mods 7 - ATM7/kubejs/data/lostcities')
+$$.clone(out, 'D:/Games/curseforge/minecraft/Instances/All the Mods 7 - ATM7/kubejs/data/lostcities/lostcities')
 console.log('Done!')

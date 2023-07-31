@@ -18,6 +18,26 @@
       "char": "]",
       "block": "connectedglass:borderless_glass"
     },
+    {
+      "char": "⇊",
+      "block": "minecraft:chest[facing=south]",
+      "loot": "chestloot"
+    },
+    {
+      "char": "⇈",
+      "block": "minecraft:chest[facing=north]",
+      "loot": "chestloot"
+    },
+    {
+      "char": "⇇",
+      "block": "minecraft:chest[facing=west]",
+      "loot": "chestloot"
+    },
+    {
+      "char": "⇉",
+      "block": "minecraft:chest[facing=east]",
+      "loot": "chestloot"
+    },
 
 
     {
@@ -105,6 +125,27 @@
     {
       "char": "/",
       "block": "minecraft:stone_stairs[facing=west,half=bottom,shape=straight]"
+    },
+
+    {
+      "char": "u",
+      "block": "minecraft:white_concrete"
+    },
+    {
+      "char": "R",
+      "block": "pneumaticcraft:smooth_plastic_brick_black"
+    },
+    {
+      "char": "v",
+      "block": "minecraft:black_concrete"
+    },
+    {
+      "char": "U",
+      "block": "absentbydesign:wall_obsidian"
+    },
+    {
+      "char": "V",
+      "block": "minecraft:obsidian"
     }
   ]
 }
