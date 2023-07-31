@@ -18,6 +18,26 @@
       "char": "]",
       "block": "connectedglass:borderless_glass"
     },
+    {
+      "char": "⇊",
+      "block": "minecraft:chest[facing=south]",
+      "loot": "chestloot"
+    },
+    {
+      "char": "⇈",
+      "block": "minecraft:chest[facing=north]",
+      "loot": "chestloot"
+    },
+    {
+      "char": "⇇",
+      "block": "minecraft:chest[facing=west]",
+      "loot": "chestloot"
+    },
+    {
+      "char": "⇉",
+      "block": "minecraft:chest[facing=east]",
+      "loot": "chestloot"
+    },
 
 
     {

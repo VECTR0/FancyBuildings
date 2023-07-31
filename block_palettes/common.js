@@ -62,6 +62,7 @@ function makeSimplePalette(name, pallettes) {
     }
 }
 function makeSingleBlockPallete(name, char, pallettes) {
+    if(char.length != 1) throw new Error(`Char must be a single character, got '${char}' of length ${char.length}`)
     makeSimplePalette(name, {chars: [char], blocks: pallettes.map(b => typeof b !== "string" && typeof b[0] !== "string" ? [b[0], b.slice(1)]: [b])})
 }
 let rotationBlacklist = ['utilitix:experience_crystal[facing=up]', 'minecraft:crafting_table', 'minecraft:brewing_stand', 'minecraft:cartography_table', 'byg:embur_crafting_table', 'byg:holly_crafting_table', 'byg:jacaranda_crafting_table', 'byg:lament_crafting_table', 'apotheosis:reforging_table', 'minecraft:smithing_table', 'byg:pine_crafting_table', 'byg:redwood_crafting_table', 'apotheosis:salvaging_table', 'powah:energy_cell_starter', 'minecraft:air', 'byg:sythian_crafting_table']
