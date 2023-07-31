@@ -75,6 +75,19 @@ function makeFloralDecorations() {
     makeSingleBlockPallete("planter", "⬞", ['supplementaries:planter'])
 }
 
+function makeDeskDecor() {
+    let deskDecor = [
+        'minecraft:sea_pickle[pickles=1,waterlogged=false]', 'minecraft:sea_pickle[pickles=2,waterlogged=false]', 
+        'ae2:tiny_tnt', 'minecraft:flower_pot', 'supplementaries:hourglass', 'supplementaries:jar', 'twilightforest:firefly_jar', 'supplementaries:urn', 'minecraft:lantern', 'minecraft:soul_lantern',
+        'minecraft:redstone_wire[north=none,south=none,east=none,west=none]', 'supplementaries:gunpowder[north=none,south=none,east=none,west=none]',
+        ...['supplementaries:present_black', 'supplementaries:present_blue', 'supplementaries:trapped_present_orange', 'supplementaries:trapped_present_red', 'botania:black_floating_flower', 'botania:white_floating_flower', 'botania:yellow_floating_flower', 'botania:purple_floating_flower'].map(x=>[0.25, x]),
+        'supplementaries:globe_sepia', 'supplementaries:globe', 'create:peculiar_bell', 'create:haunted_bell', 'supplementaries:statue' 
+    ]
+    let totalWeight = deskDecor.reduce((total, current) => total+(typeof current == "string" ? 1 : current[0]), 0)
+    deskDecor.push([totalWeight*2, 'minecraft:air'])
+    makePalleteWithRotation('desk_decor', '⇣⇢⇡⇠', [deskDecor])
+}
+
 module.exports = function() {
     makeBars()
     makeCeilingDecorations()
@@ -83,13 +96,13 @@ module.exports = function() {
     makeSingleBlockPallete('enchanting_table', '⬚', ['minecraft:enchanting_table'])
     makeSingleBlockPallete('enchanting_bookshelf', '⬜', [['minecraft:bookshelf', [0.035, 'botania:mana_pylon']]])
     makeFloralDecorations()
-    makePalleteWithRotation('mob_head', '↧↦↥↤', [
+    makePalleteWithRotation('mob_head', '↧↦↥↤', [[
         "minecraft:air",
         'tconstruct:spider_wall_head', 'tconstruct:drowned_wall_head', 'tconstruct:husk_wall_head', 'tconstruct:enderman_wall_head', 'minecraft:creeper_wall_head', 'tconstruct:blaze_wall_head', 'minecraft:zombie_wall_head', 'tconstruct:stray_wall_head', 'minecraft:skeleton_wall_skull', 'tconstruct:zombified_piglin_wall_head', 'tconstruct:piglin_brute_wall_head', 'tconstruct:piglin_wall_head', 'tconstruct:cave_spider_wall_head',
         ...['twilightforest:naga_wall_trophy', 'twilightforest:lich_wall_trophy', 'twilightforest:minoshroom_wall_trophy', 'twilightforest:hydra_wall_trophy', 'twilightforest:ur_ghast_wall_trophy', 'twilightforest:knight_phantom_wall_trophy', 'twilightforest:alpha_yeti_wall_trophy', 'twilightforest:snow_queen_wall_trophy', 'twilightforest:quest_ram_wall_trophy'].map(x => [0.1, x]),
         [0.01, 'botania:gaia_wall_head']
-    ])
-    makePalleteWithRotation('utilities', '↡↠↟↞', ['minecraft:chipped_anvil', 'minecraft:anvil', 'integrateddynamics:logic_programmer', 'domum_ornamentum:architectscutter', 'corail_woodcutter:twilight_oak_woodcutter', 'powah:magmator_starter', 'powah:furnator_starter', 'tconstruct:crafting_station', 'apotheosis:salvaging_table', 'minecraft:damaged_anvil', 'powah:energy_cell_starter', 'mysticalagriculture:inferium_furnace', 'byg:redwood_crafting_table', 'byg:pine_crafting_table', 'byg:lament_crafting_table', 'byg:jacaranda_crafting_table', 'byg:holly_crafting_table', 'byg:sythian_crafting_table', 'tconstruct:part_builder', 'mysticalagriculture:basic_reprocessor', 'tconstruct:tinker_station', 'ironfurnaces:iron_furnace', 'utilitix:experience_crystal[facing=up]', 'cookingforblockheads:cooking_table', 'silentgear:material_grader', 'rftoolscontrol:programmer', 'charginggadgets:charging_station', 'silentgear:salvager', 'utilitix:crude_furnace', 'byg:embur_crafting_table', 'blue_skies:snowcap_oven', 'minecraft:furnace', 'minecraft:loom', 'minecraft:smoker', 'minecraft:blast_furnace', 'minecraft:cartography_table', 'minecraft:grindstone', 'minecraft:smithing_table', 'minecraft:stonecutter', 'minecraft:brewing_stand', 'minecraft:crafting_table', 'securitycraft:smoker_mine', 'securitycraft:furnace_mine', 'securitycraft:blast_furnace_mine'])
+    ]])
+    makePalleteWithRotation('utilities', '↡↠↟↞', [['minecraft:chipped_anvil', 'minecraft:anvil', 'integrateddynamics:logic_programmer', 'domum_ornamentum:architectscutter', 'corail_woodcutter:twilight_oak_woodcutter', 'powah:magmator_starter', 'powah:furnator_starter', 'tconstruct:crafting_station', 'apotheosis:salvaging_table', 'minecraft:damaged_anvil', 'powah:energy_cell_starter', 'mysticalagriculture:inferium_furnace', 'byg:redwood_crafting_table', 'byg:pine_crafting_table', 'byg:lament_crafting_table', 'byg:jacaranda_crafting_table', 'byg:holly_crafting_table', 'byg:sythian_crafting_table', 'tconstruct:part_builder', 'mysticalagriculture:basic_reprocessor', 'tconstruct:tinker_station', 'ironfurnaces:iron_furnace', 'utilitix:experience_crystal[facing=up]', 'cookingforblockheads:cooking_table', 'silentgear:material_grader', 'rftoolscontrol:programmer', 'charginggadgets:charging_station', 'silentgear:salvager', 'utilitix:crude_furnace', 'byg:embur_crafting_table', 'blue_skies:snowcap_oven', 'minecraft:furnace', 'minecraft:loom', 'minecraft:smoker', 'minecraft:blast_furnace', 'minecraft:cartography_table', 'minecraft:grindstone', 'minecraft:smithing_table', 'minecraft:stonecutter', 'minecraft:brewing_stand', 'minecraft:crafting_table', 'securitycraft:smoker_mine', 'securitycraft:furnace_mine', 'securitycraft:blast_furnace_mine']])
     makeSingleBlockPallete('table', 'ߠ', [['cfm:oak_table', 'cfm:spruce_table', 'cfm:birch_table', 'cfm:jungle_table', 'cfm:acacia_table', 'cfm:dark_oak_table', 'cfm:crimson_table', 'cfm:warped_table', 'cfm:stone_table', 'cfm:granite_table', 'cfm:diorite_table', 'cfm:andesite_table', 'cfm:stripped_oak_table', 'cfm:stripped_spruce_table', 'cfm:stripped_birch_table', 'cfm:stripped_jungle_table', 'cfm:stripped_acacia_table', 'cfm:stripped_dark_oak_table', 'cfm:stripped_crimson_table', 'cfm:stripped_warped_table'].map(x=>`${x}[waterlogged=false]`)])
     makeSingleBlockPallete('cake', 'ߑ', [[
         ...[1, 2, 3].map(i=>`farmersdelight:sweet_berry_cheesecake[bites=${i}]`), [6, 'farmersdelight:sweet_berry_cheesecake'], 
@@ -98,4 +111,7 @@ module.exports = function() {
     makeSingleBlockPallete('chain', 'ߊ', ['minecraft:chain', 'additionallanterns:obsidian_chain', 'additionallanterns:basalt_chain', 'additionallanterns:andesite_chain', 'additionallanterns:diorite_chain', 'additionallanterns:granite_chain', 'additionallanterns:normal_sandstone_chain', 'additionallanterns:red_sandstone_chain', 'additionallanterns:smooth_stone_chain', 'additionallanterns:quartz_chain', 'additionallanterns:end_stone_chain', 'additionallanterns:prismarine_chain', 'additionallanterns:dark_prismarine_chain', 'additionallanterns:blackstone_chain', 'additionallanterns:normal_nether_bricks_chain', 'additionallanterns:red_nether_bricks_chain', 'additionallanterns:crimson_chain', 'additionallanterns:warped_chain', 'additionallanterns:purpur_chain', 'additionallanterns:bricks_chain', 'forbidden_arcanus:arcane_golden_chain', 'securitycraft:reinforced_chain'])
     makeSingleBlockPallete('campfire', 'ߍ', [['minecraft:soul_campfire', [4, 'minecraft:campfire'], 'occultism:spirit_campfire', 'byg:boric_campfire', 'byg:cryptic_campfire']])
     makeSingleBlockPallete('composter', 'ߛ', ['minecraft:composter'])
+    makeDeskDecor()
+    makePalleteWithRotation('trapdoor', '⥐⥏⥎⥑', ['minecraft:iron_trapdoor', 'everythingcopper:copper_trapdoor', 'supplementaries:lead_trapdoor', 'supplementaries:silver_trapdoor', 'minecraft:dark_oak_trapdoor', 'minecraft:spruce_trapdoor'].map(x=>`${x}[half=top]`))
+    makePalleteWithRotation('screen', '⇓⇒⇑⇐', ['computercraft:monitor_normal'])
 }
